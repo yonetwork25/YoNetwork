@@ -416,7 +416,7 @@ Yo Network is fully EVM compatible. Any Uniswap V2/V3 fork can be deployed direc
 | **Exchange Listings** | contact@yonetwork.org |
 | **Technical Support** | contact@yonetwork.org |
 | **Security Reports** | contact@yonetwork.org |
-| **Telegram** | https://t.me/certitude_cars |
+| **Telegram** | https://t.me/yonetwork25|
 | **GitHub** | https://github.com/yonetwork25/YoNetwork |
 | **Website** | https://yonetwork.org |
 | **Explorer** | https://explorer.yonetwork.org |
