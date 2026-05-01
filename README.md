@@ -1,134 +1,297 @@
-<!--
-parent:
-  order: false
--->
+# Yo Network
 
 <div align="center">
-  <h1> Evmos </h1>
+
+![Yo Network](https://explorer.yonetwork.org/yonetwork-logo-transparent.png)
+
+**A high-performance EVM-compatible blockchain built on Cosmos SDK + CometBFT**
+
+[![License](https://img.shields.io/badge/License-ENCL--1.0-blue.svg)](LICENSE)
+[![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8.svg)](https://golang.org/)
+[![Chain ID](https://img.shields.io/badge/Chain%20ID-9000-green.svg)](https://explorer.yonetwork.org)
+[![Explorer](https://img.shields.io/badge/Explorer-Live-brightgreen.svg)](https://explorer.yonetwork.org)
+
+[Website](https://yonetwork.org) • [Explorer](https://explorer.yonetwork.org) • [Documentation](#) • [Telegram](https://t.me/certitude_cars)
+
 </div>
 
-<div align="center">
-  <a href="https://github.com/evmos/evmos/releases/latest">
-    <img alt="Version" src="https://img.shields.io/github/tag/evmos/evmos.svg" />
-  </a>
-  <a href="https://github.com/evmos/evmos/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/evmos/evmos.svg" />
-  </a>
-  <a href="https://pkg.go.dev/github.com/evmos/evmos">
-    <img alt="GoDoc" src="https://godoc.org/github.com/evmos/evmos?status.svg" />
-  </a>
-  <a href="https://goreportcard.com/report/github.com/evmos/evmos">
-    <img alt="Go report card" src="https://goreportcard.com/badge/github.com/evmos/evmos"/>
-  </a>
-</div>
-<div align="center">
-  <a href="https://discord.gg/evmos">
-    <img alt="Discord" src="https://img.shields.io/discord/809048090249134080.svg" />
-  </a>
-  <a href="https://github.com/evmos/evmos/actions?query=branch%3Amain+workflow%3ALint">
-    <img alt="Lint Status" src="https://github.com/evmos/evmos/actions/workflows/lint.yml/badge.svg?branch=main" />
-  </a>
-  <a href="https://codecov.io/gh/evmos/evmos">
-    <img alt="Code Coverage" src="https://codecov.io/gh/evmos/evmos/branch/main/graph/badge.svg" />
-  </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow Evmos" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
-  </a>
-</div>
+---
 
-## About
+## Overview
 
-Evmos is a scalable, high-throughput Proof-of-Stake EVM blockchain
-that is fully compatible and interoperable with Ethereum.
-It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/)
-which runs on top of the [CometBFT](https://github.com/cometbft/cometbft) consensus engine.
+Yo Network is a next-generation EVM-compatible blockchain that combines the security and interoperability of the Cosmos ecosystem with the developer familiarity of the Ethereum Virtual Machine.
 
-## Quick Start
+Built as a fork of [Evmos](https://evmos.org), Yo Network delivers:
 
-To learn how Evmos works from a high-level perspective,
-go to the [Protocol Overview](https://docs.evmos.org/protocol) section of the documentation.
-You can also check the instructions to [Run a Node](https://docs.evmos.org/protocol/evmos-cli#run-an-evmos-node).
+- ⚡ **Fast finality** — ~3 second block times
+- 🔗 **Full EVM compatibility** — deploy any Solidity smart contract
+- 🌐 **IBC-enabled** — interoperable with 100+ Cosmos chains
+- 🛡️ **Proof-of-Stake** security via CometBFT consensus
+- 💎 **Native token: YO** — used for gas, staking, and governance
 
-## Documentation
+---
 
-Our documentation is hosted in a [separate repository](https://github.com/evmos/docs) and can be found at [docs.evmos.org](https://docs.evmos.org).
-Head over there and check it out.
+## Network Details
 
-## Installation
+| Parameter | Value |
+|-----------|-------|
+| **Network Name** | Yo Network |
+| **Native Token** | YO |
+| **Token Decimals** | 18 |
+| **Chain ID (EVM)** | 9000 |
+| **Chain ID (Cosmos)** | evmos_9000-1 |
+| **Block Time** | ~3 seconds |
+| **Consensus** | CometBFT (BFT PoS) |
+| **Total Supply** | 5,000,000,000 YO |
+| **EVM Compatible** | Yes (Solidity, Vyper) |
+| **IBC Compatible** | Yes |
 
-For prerequisites and detailed build instructions
-please read the [Installation](https://docs.evmos.org/protocol/evmos-cli) instructions.
-Once the dependencies are installed, run:
+---
 
-```bash
-make install
+## Network Endpoints
+
+| Service | URL |
+|---------|-----|
+| **RPC (EVM/JSON-RPC)** | https://rpc.yonetwork.org |
+| **WebSocket** | wss://ws.yonetwork.org |
+| **Cosmos REST API** | https://api.yonetwork.org |
+| **Block Explorer** | https://explorer.yonetwork.org |
+
+---
+
+## Add to MetaMask
+
+| Field | Value |
+|-------|-------|
+| Network Name | Yo Network |
+| RPC URL | https://rpc.yonetwork.org |
+| Chain ID | 9000 |
+| Currency Symbol | YO |
+| Block Explorer URL | https://explorer.yonetwork.org |
+
+---
+
+## Token Information
+
+| Field | Value |
+|-------|-------|
+| **Token Name** | YO |
+| **Token Symbol** | YO |
+| **Decimals** | 18 |
+| **Total Supply** | 5,000,000,000 YO |
+| **Base Denomination** | aevmos (1 YO = 10^18 aevmos) |
+| **Type** | Native Gas + Governance Token |
+| **Staking** | Yes — earn rewards by delegating to validators |
+| **Governance** | Yes — vote on protocol upgrades |
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    Yo Network                        │
+│                                                     │
+│  ┌───────────────┐    ┌───────────────────────────┐ │
+│  │  EVM Layer    │    │    Cosmos SDK Modules      │ │
+│  │  (Ethermint)  │    │  Bank, Staking, Gov, IBC   │ │
+│  └───────┬───────┘    └────────────┬──────────────┘ │
+│          │                         │                 │
+│  ┌───────▼─────────────────────────▼──────────────┐ │
+│  │            CometBFT Consensus Engine            │ │
+│  │         (Byzantine Fault Tolerant PoS)          │ │
+│  └─────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────┘
 ```
 
-Or check out the latest [release](https://github.com/evmos/evmos/releases).
+**Key components:**
+- **Ethermint** — EVM implementation for Cosmos SDK
+- **CometBFT** — Production-grade BFT consensus
+- **Cosmos SDK v0.47** — Modular blockchain framework
+- **IBC** — Inter-Blockchain Communication protocol
 
-## Community
+---
 
-The following chat channels and forums are great spots to ask questions about Evmos:
+## Getting Started
 
-- [Evmos Twitter](https://twitter.com/EvmosOrg)
-- [Evmos Discord](https://discord.gg/evmos)
-- [Evmos Forum](https://commonwealth.im/evmos)
+### Prerequisites
+
+- Go 1.21+
+- Git
+- Make
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yonetwork25/YoNetwork.git
+cd YoNetwork
+
+# Build the binary
+make install
+
+# Verify installation
+evmosd version
+```
+
+For full node setup, validator setup, and developer guides, see [INSTALL.md](INSTALL.md).
+
+---
+
+## Validators
+
+Yo Network is secured by a set of Proof-of-Stake validators. Current active validators:
+
+| Validator | Stake | Status |
+|-----------|-------|--------|
+| yo-node-1 | 1,000,000 YO | Active |
+| YoClub | 9,990,000 YO | Active |
+
+**Become a validator** — see [INSTALL.md](INSTALL.md#validator-setup) for instructions.
+
+---
+
+## Smart Contract Development
+
+Yo Network is fully EVM-compatible. Deploy your existing Ethereum contracts with no changes:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract HelloYoNetwork {
+    string public message = "Hello, Yo Network!";
+    
+    function setMessage(string memory _msg) public {
+        message = _msg;
+    }
+}
+```
+
+**Deploy with:**
+- [Remix IDE](https://remix.ethereum.org) — point to https://rpc.yonetwork.org
+- [Hardhat](https://hardhat.org) — Chain ID 9000
+- [Foundry](https://getfoundry.sh) — fully compatible
+
+---
+
+## Governance
+
+YO token holders can participate in on-chain governance:
+
+```bash
+# Submit a proposal
+evmosd tx gov submit-proposal [proposal-file] --from [key] --chain-id evmos_9000-1
+
+# Vote on a proposal
+evmosd tx gov vote [proposal-id] yes --from [key] --chain-id evmos_9000-1
+
+# Query proposals
+evmosd query gov proposals
+```
+
+---
+
+## Staking
+
+Earn YO rewards by delegating to validators:
+
+```bash
+# Delegate YO to a validator
+evmosd tx staking delegate [validator-address] [amount]aevmos \
+  --from [your-key] \
+  --chain-id evmos_9000-1 \
+  --gas auto \
+  --gas-prices 1000000000aevmos
+
+# Claim staking rewards
+evmosd tx distribution withdraw-all-rewards \
+  --from [your-key] \
+  --chain-id evmos_9000-1
+```
+
+---
+
+## IBC
+
+Yo Network supports IBC for cross-chain transfers:
+
+```bash
+# IBC transfer
+evmosd tx ibc-transfer transfer transfer [channel-id] [receiver] [amount]aevmos \
+  --from [key] \
+  --chain-id evmos_9000-1
+```
+
+---
+
+## Repository Structure
+
+```
+YoNetwork/
+├── app/                    # Application setup and modules
+├── cmd/evmosd/            # CLI entry point
+├── contracts/             # Pre-compiled Solidity contracts
+├── crypto/                # Cryptographic utilities
+├── precompiles/           # EVM precompiles
+├── proto/                 # Protocol buffer definitions
+├── server/                # Node server implementation
+├── testutil/              # Testing utilities
+├── types/                 # Core types
+├── utils/                 # Utility functions
+├── x/                     # Cosmos SDK modules
+│   ├── erc20/            # ERC-20 module
+│   ├── evm/              # EVM module
+│   ├── feemarket/        # EIP-1559 fee market
+│   ├── inflation/        # Token inflation
+│   └── revenue/          # Developer revenue sharing
+├── INSTALL.md
+├── LISTING.md
+└── README.md
+```
+
+---
 
 ## Contributing
 
-Looking for a good place to start contributing?
-Check out some
-[`good first issues`](https://github.com/evmos/evmos/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
+We welcome contributions from the community!
 
-For additional instructions, standards and style guides, please refer to the [Contributing](./CONTRIBUTING.md) document.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Careers
+---
 
-See our open positions on [Greenhouse](https://boards.eu.greenhouse.io/evmos).
+## Security
 
-## Licensing
+Found a security vulnerability? Please **do not** open a public issue.
 
-Starting from April 21st, 2023, the Evmos repository will update its License
-from GNU Lesser General Public License v3.0 (LGPLv3) to [Evmos Non-Commercial
-License 1.0 (ENCL-1.0)](./LICENSE). This license applies to all software released from Evmos
-version 13 or later, except for specific files, as follows, which will continue
-to be licensed under LGPLv3:
+Contact us privately:
+- **Email:** contact@yonetwork.org
+- **Telegram:** https://t.me/certitude_cars
 
-- `x/revenue/v1/` (all files in this folder)
-- `x/claims/genesis.go`
-- `x/erc20/keeper/proposals.go`
-- `x/erc20/types/utils.go`
+---
 
-LGPLv3 will continue to apply to older versions ([<v13.0.0](https://github.com/evmos/evmos/releases/tag/v12.1.5))
-of the Evmos repository. For more information see [LICENSE](./LICENSE).
+## Links
 
-> [!WARNING]
->
-> **NOTE: If you are interested in using this software**
-> email us at [evmos-sdk@evmos.org](mailto:evmos-sdk@evmos.org) with copy to [legal@thars.is](mailto:legal@thars.is)
+| Resource | URL |
+|----------|-----|
+| Website | https://yonetwork.org |
+| Explorer | https://explorer.yonetwork.org |
+| RPC | https://rpc.yonetwork.org |
+| Telegram | https://t.me/certitude_cars |
+| Email | contact@yonetwork.org |
 
-### SPDX Identifier
+---
 
-The following header including a license identifier in [SPDX](https://spdx.dev/learn/handling-license-info/)
-short form has been added to all ENCL-1.0 files:
+## License
 
-```go
-// Copyright Tharsis Labs Ltd.(Evmos)
-// SPDX-License-Identifier:ENCL-1.0(https://github.com/evmos/evmos/blob/main/LICENSE)
-```
+Yo Network is licensed under the [Evmos Non-Commercial License 1.0 (ENCL-1.0)](LICENSE). Some files are licensed under [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.html).
 
-Exempted files contain the following SPDX ID:
+---
 
-```go
-// Copyright Tharsis Labs Ltd.(Evmos)
-// SPDX-License-Identifier:LGPL-3.0-only
-```
-
-### License FAQ
-
-Find below an overview of the Permissions and Limitations of the Evmos Non-Commercial License 1.0.
-For more information, check out the full ENCL-1.0 FAQ [here](./LICENSE_FAQ.md).
-
-| Permissions                                                                                                                                                                  | Prohibited                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| - Private Use, including distribution and modification<br />- Commercial use on designated blockchains<br />- Commercial use with Evmos permit (to be separately negotiated) | - Commercial use, other than on designated blockchains, without Evmos permit |
+<div align="center">
+Built with ❤️ by the Yo Network team
+</div>
