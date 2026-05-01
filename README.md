@@ -281,7 +281,7 @@ Contact us privately:
 | Website | https://yonetwork.org |
 | Explorer | https://explorer.yonetwork.org |
 | RPC | https://rpc.yonetwork.org |
-| Telegram | https://t.me/certitude_cars |
+| Telegram | https://t.me/yonetwork25 |
 | Email | contact@yonetwork.org |
 
 ---
